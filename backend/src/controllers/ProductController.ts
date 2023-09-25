@@ -7,7 +7,6 @@ export const newProduct = async (req: Request, res: Response) => {
   const price = req.body.price;
   const gender = req.body.gender;
   const description = req.body.description;
-  console.log(req.body.type);
 
   if (title && type && price && gender && description) {
     try {
@@ -38,6 +37,20 @@ export const getProducts = async (req: Request, res: Response) => {
     res
       .status(500)
       .send({ message: "Erro ao buscar os produtos", error: error });
+  }
+};
+
+export const findProduct = async (req: Request, res: Response) => {
+  try {
+    const ProductId = req.params.id;
+    const product = await Product.findByPk(ProductId);
+    if (!product) {
+      return res.status(404).json({ message: "Produto não encontrado!" });
+    }
+    res.json(product);
+  } catch (error) {
+    console.error("Erro ao achar Produto", error);
+    res.status(500).json({ message: "Erro ao achar Produto" });
   }
 };
 

@@ -1,0 +1,20 @@
+.mainHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mainHeader button {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  padding: 10px;
+  border-radius: 5px;
+  outline: 0;
+  border: 1px solid grey;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.mainHeader button:hover {
+  opacity: 0.5;
+}

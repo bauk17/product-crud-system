@@ -1,0 +1,98 @@
+/* Container geral do formulário */
+.containerInput {
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+}
+
+/* Estilo para inputs e textarea */
+.containerInput input,
+.containerInput textarea {
+  outline: none;
+  background-color: rgba(0, 0, 0, 0.1);
+  height: 40px;
+  border: 1.5px solid rgba(70, 68, 68, 0.5);
+  border-radius: 4px;
+}
+
+.containerInput input:hover {
+  border-color: rgb(73, 192, 231);
+}
+
+/* Estilo para rótulos */
+.containerInput label {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* Estilo para textarea sem redimensionamento */
+.descriptionTextArea {
+  resize: none;
+}
+
+/* Estilo para botão de envio */
+.buttonSubmit {
+  margin-top: 10px;
+  width: 100%;
+  border: none;
+  padding: 10px;
+  background-color: rgba(129, 157, 221, 0.856);
+  cursor: pointer;
+  transition: opacity 1s;
+}
+
+.buttonSubmit:hover {
+  opacity: 0.7;
+}
+
+/* Estilo para o modal de novo produto */
+.modalNewProduct {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro semi-transparente */
+  z-index: 999; /* Z-index alto para estar sobre outros elementos */
+}
+
+.modalNewProduct h1 {
+  color: white;
+  text-align: center;
+}
+
+/* Estilo para o contêiner principal do modal */
+.mainContainer {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000; /* Z-index maior para estar sobre o overlay */
+}
+
+/* Estilo para o botão de fechar no cabeçalho do modal */
+.containerHeader button {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+  border: none;
+  color: rgb(240, 82, 82);
+  background-color: #fff;
+  transition: 0.5s;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.containerHeader button:hover {
+  background-color: rgb(240, 82, 82);
+  color: white;
+}
+
+/* Estilo para o cabeçalho do modal */
+.containerHeader h1 {
+  color: black;
+}
