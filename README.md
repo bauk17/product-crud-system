@@ -1,115 +1,92 @@
->[!NOTE]
->Dopaminergic To-Do is a project designed to boost human productivity by leveraging the brain's dopaminergic system. The concept is simple: you create a task, complete it, and receive a substantial amount of points. These points can be redeemed for unique >rewards within the app, such as exclusive medals and titles that you can display on your profile.
+# Electron-React Application
 
->[!IMPORTANT]
->This project is still on developing. There's a amount of stuffs i have to create, including the interface(ReactTS)
+This is a FullStack system, made for peoples who want to control yourself stock of items/produts. You can add whatever you want on it. Everything has a name, type, size, price and a description. Made with Electron + React + NodeJs + MYSQL
 
-Environment variables
-To run this project, you must add the following variables to your .env file:
+## Environment variables
 
-DB_DBNAME
-
-DB_USER
-
-DB_PASSWORD
-
-DB_PORT
-
-DB_HOST
-
-DATABASE_URL
-
-SECRET_JSON_KEY
+To run this project, you must have to add the following variables to your .env file: 
 
 
-#### Running It
-```
-cd api/
-npm install
-```
+`PORT`
+
+`MYSQL_DB`
+
+`MYSQL_USER`
+
+`MYSQL_PASSWORD`
+
+`MYSQL_PORT`
 
 
-### API Documentation
-Observation: Most of routes are protected and you need to be authenticated to run it. To authenticate, you must log in.
+## API Documentation
 
-
-
-#### Create a new user account
+#### Return all the items from database
 
 ```http
-  POST /newAccount
-
+  GET /get-products
 ```
 
-
-| Parameter   | Tipo       | Descrição                                   |
-| :---------- | :--------- | :------------------------------------------ |
-| `username / email / password`      | `str` | You must send it from "Content-type ": application/x-www-form-urlencoded |
-
-
-#### If you're logged in, running this route gonna return your accounts information decoded
+#### Return a specific item from database
 
 ```http
-  GET /userProfile
-
-```
-
-#### A password recovery route (in developing)
-```http
-  POST /email-request
-
+  GET /get-product/${id}
 ```
 
 | Parameter   | Tipo       | Descrição                                   |
 | :---------- | :--------- | :------------------------------------------ |
-| `email`      | `str` |  Change password |
+| `id`      | `int` | Id from the item you want to get |
 
 
-### Task Management Routes
-
-
-#### Create a new Task
-
+#### Create a new item on database
 
 ```http
-  POST /newTask
+  POST /new-product
+```
+| Parameter   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `title` / `type` / `price` / `gender(i will change it)` / `description`  | `str` | You must send it from "Content-type ": application/x-www-form-urlencoded
 
+
+#### Create a new item on database
+
+```http
+  PUT /product/${id}
 ```
 
 | Parameter   | Tipo       | Descrição                                   |
 | :---------- | :--------- | :------------------------------------------ |
-| `task / description `      | `str` | Add a new task |
-
-
-#### Return all user's tasks from database
+| `title` / `type` / `price` / `gender(i will change it)` / `description`  | `str` | You must send it from "Content-type ": application/x-www-form-urlencoded
 
 ```http
-  GET /getTasks
-
-```
-
-
-#### Delete a task
-
-```http
-  DELETE /deleteTask/:taskId
-```
-
-#### Update a existing task
-
-```http
-  PUT /changeTask/
+  DELETE /product/${id}
 ```
 
 | Parameter   | Tipo       | Descrição                                   |
 | :---------- | :--------- | :------------------------------------------ |
-| `task / description`      | `str` | You must send it from "Content-type ": application/x-www-form-urlencoded |
+| `id`      | `int` | Id from the item you want to remove from database |
 
 
-#### This route gonna mark a task as done. Then, the user associate will receive a amount of points
-
-```http
-  POST /doneTask/:taskId
-```
 
 
+
+## Getting on it
+
+Install product-electron
+
+```bash
+cd frontend
+  npm install
+cd backend
+    npm install
+``
+
+cd frontend/src/react-/ use npm start to run the 'html' for Electron (you need to do that before inicializate the electron interface) // You can also deploy the react to have a better experience
+
+cd frontend/dist/electron-interface Setup 1.0.0, install it to get the Electron App interface
+
+cd backend/server.exe, open it to run the server
+
+
+## Roadmap
+
+- Make a better UX/UI Interface
